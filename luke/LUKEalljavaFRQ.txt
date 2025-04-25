@@ -1,0 +1,198 @@
+public class AppointmentBook
+{
+
+public int findFreeBlock(int period, int duration)
+{
+
+int mins_free_consecutive = 0;
+int start_minute = 0;
+
+for(int i = 0; i < 60; i++){
+
+if(isMinuteFree(period, minute)){
+
+if(mins_free_consecutive == 0){
+start_minute = i;
+}
+
+mins_free_consecutive++;
+
+}
+else{
+mins_free_so_far = 0;
+}
+
+if(mins_free_consecutive >= duration){
+return start_minute;
+}
+
+} //end of for loop
+
+return -1;
+
+} //end of findFreeBlock
+
+
+public boolean makeAppointment(int startPeriod, int endPeriod, int duration)
+{
+for(int i = startPeriod; i <= startPeriod; i++){
+
+start_time = findFreeBlock(i,duration);
+
+if(start_time > -1){
+reserveBlock(i,start_time,duration);
+return true;
+}
+
+} //end of for loop
+
+return false;
+
+} //end of makeAppointment
+
+} //end of AppointmentBook class
+
+/////////
+
+public class Sign{
+
+private String text;
+private int lineWidth;
+
+
+public Sign(String text, int lineWidth){
+	this.text = text;
+	this.lineWidth = lineWidth;
+} //end of constructor
+
+
+public int numberOfLines(){
+
+if(this.text.length() % this.lineWidth == 0){
+return this.text.length() / this.lineWidth;
+}
+else{
+return this.text.length() / this.lineWidth + 1;
+}
+
+} //end of numberOfLines
+
+
+public String getLines(){
+
+if(this.text.equals("")){
+return null;
+}
+
+String outputString = String(this.text);
+int added_offset = 0;
+
+for(int i = 0; i < this.text.length(); i++){
+
+if(i % this.lineWidth == 0){
+
+outputString = outputString.substring(0, i + added_offset) + ";" + outputString.substring(i + added_offset);
+added_offset++;
+
+}
+
+} //end of for loop
+
+return outputString;
+
+} //end of getLines
+
+} //end of Sign class
+
+/////////
+
+public class WeatherData{
+
+public void cleanData(double lower, double upper){
+
+ArrayList<Double> finaltemperatures = new ArrayList<Double>();
+
+for(int i = 0; i < temperatures.size(); i++){
+
+if(lower < temperatures.get(i) && temperatures.get(i) < upper){
+finaltemperatures.add(temperatures.get(i)) 
+}
+
+} //end of for loop
+
+temperatures = finaltemperatures;
+
+} //end of cleanData
+
+
+public int longestHeatWave(double threshold){
+
+int current_streak = 0;
+int longest_streak = 0;
+for(int i = 0; i < temperatures.size(); i++){
+
+if(temperatures.get(i) > threshold){
+current_streak++;
+if(current_streak > longest_streak){
+longest_streak = current_streak;
+}
+}
+else{
+current_streak = 0;
+}
+
+} //end of for loop
+
+return longest_streak;
+
+} //end of longestHeatWave
+
+} //end of WeatherData class
+
+/////////
+
+public class BoxOfCandy{
+
+public boolean moveCandyToFirstRow(int col){
+
+if(box[0][col] != null){
+return true;
+}
+
+for(int i = 1; i < box.length; i++){
+
+if(box[i][col] != null){
+
+box[0][col] = box[i][col]
+box[i][col] = null; //might not work? (set object to null instead of array pos?)
+return true;
+
+}
+
+} //end of for loop
+
+return false;
+
+} //end of moveCandyToFirstRow
+
+
+public Candy removeNextByFlavor(String flavor){
+
+for(int i = box.length - 1; i >= 0; i--){
+for(int j = 0; i < box[0].length; i++){ 
+
+if(box[i][j].getFlavor().equals(flavor)){
+Candy temp = box[i][j];
+box[i][j] = null;
+return temp;
+
+}
+
+} //end of for loop (columns)
+} //end of for loop (rows)
+
+return null;
+
+} //end of removeNextByFlavor
+
+} //end of BoxOfCandy class
