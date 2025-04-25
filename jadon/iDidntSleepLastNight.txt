@@ -1,0 +1,136 @@
+[1]
+(a)
+public class AppointmentBook {
+	public int findFreeBlock(int period, int duration) {
+		// ? Do I need to check if the preconditions are met
+		if (!(period >= 1 && period <= 8 && duration >= 1 && duration <= 60)){
+			return -1;
+		}
+		for (int i = 0; i < 60; i++) {
+			if (isMinuteFree(period, i) {
+				int currentDuration = 1;
+				while (isMinuteFree(period, i+currentDuration) {
+					currentDuration++;
+				}
+				if (currentDurration >= durration) {
+					return i;
+				}
+				i += currentDuration + 1
+			}
+		}
+		return -1;
+	}
+}
+
+(b)
+public class AppointmentBook {
+	public boolean makeAppointment(int startPeriod, int endPeriod, int duration) {
+		int currentPeriod = startPeriod;
+		while (currentPeriod <= endPeriod) {
+			int freeDurrationStart = findFreeBlock(currentPeriod, duration);
+			if (freeDurrationStart == -1) {
+				currentPeriod++;
+			} else {
+				reserveBlock(currentPeriod, freeDurrationStart, durration);
+			}
+		}
+	}
+}
+
+
+[2]
+public class Sign {
+	private String message;
+	private int lineWidth;
+
+	public Sign(String message, int lineWidth) {
+		this.message = message;
+		this.lineWidth = lineWidth;
+	}
+	public int numberOfLines() {
+		int completeLines = this.message.length() / this.lineWidth;
+		int incompleteLine = (this.message.length() % this.lineWidth) > 0 ? 1 : 0;
+		return completeLines + incompleteLine;
+	}
+	public String getLines() {
+		String result = "";
+		for (int i = 0; i < numberOfLines(); i++) {
+			int start = i * this.lineWidth;
+			int end = ((i * this.lineWidth) + this.lineWidth) - 1;
+			if (((end - start) + 1) == this.lineWidth) {
+				result += this.message.substring(start, end) + ";";
+			} else {
+				result += this.message.substring(start);
+			}
+		}
+		return result;
+	}
+}
+[3]
+(a)
+public class WeatherData {
+	public void cleanData(double lower, double upper) {
+		for (i = 0; i < this.tempratures.size(); i++) {
+			double currentTemp = this.tempratures.get(i);
+			if (currentTemp < lower || temp > currentTemp) {
+				this.tempratures.remove(i);
+			}
+		}
+	}
+}
+
+(b)
+public int longestHeatWave(double threshold) {
+	ArrayList<int> heatWaveLengths;
+	int consecutiveDays = 0;
+	for (i = 0; i < this.tempratures.size(); i++) {
+		double currentTemp = this.tempratures.get(i);
+		if (currentTemp > threshold) {
+			consecutiveDays++;
+		} else {
+			if (consecutiveDays > 1) {
+				heatWaveLengths.add(consecutiveDays);
+			}
+			consecutiveDays = 0;
+		}
+	}	
+	int lengthRecord = 0;
+	for (int length : heatWaveLengths) {
+		if (length > lengthRecord) {
+			lengthRecord = length;
+		}
+	}
+	return lengthRecord;
+}
+[4]
+(a)
+public boolean moveCandyToFirstRow(int col) {
+	if (this.box[0][col] != null) {
+		return true;
+	}
+	for (i = 0; i < this.box.length; i++) {
+		Candy currentCandy = this.box[i][col];
+		if (currentCandy != null) {
+			String candyToMove = currentCandy;
+			this.box[0][col] = candyToMove;
+			currentCandy = null;
+			return true;
+		}
+	}
+	return false;
+}
+
+(b)
+public Candy removeNextByFlavor(String flavor) {
+	// loop over rows
+	for (int i = 0; i < this.box.length; i++) {
+		// loop backwards over columns
+		for (int j = this.box[i].length-1; j <= 0; j--) {
+			Candy currentCandy = this.box[i][j];
+			if (currentCandy.getFlavor() == flavor) {
+				this.box[i][j] = null;
+				return currentCandy;
+			}
+		}
+	}
+}
