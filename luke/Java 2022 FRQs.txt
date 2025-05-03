@@ -1,0 +1,205 @@
+public class Game {
+
+private Level levelOne;
+private Level levelTwo;
+private Level levelThree;
+
+public int getScore()
+{
+
+int finalScore = 0;
+boolean oneComplete = levelOne.goalReached();
+boolean twoComplete = levelTwo.goalReached();
+boolean threeComplete = levelThree.goalReached();
+
+if(oneComplete == true){
+finalScore = finalScore + levelOne.getPoints();
+}
+
+if(oneComplete == true && twoComplete == true){
+finalScore = finalScore + levelTwo.getPoints();
+}
+
+if(oneComplete == true && twoComplete == true && threeComplete == true){
+finalScore = finalScore + levelThree.getPoints();
+}
+
+if(this.isBonus() == true){ //no this?
+finalScore = finalScore * 3;
+}
+
+return finalScore;
+
+} //end of getScore
+
+public int playManyTimes(int num)
+{
+
+int highest_finalScore = 0;
+int currentScore = 0;
+
+for(int i = 0; i < num; i++){
+
+this.play();
+currentScore = this.getScore()
+
+if(currentScore > highest_finalScore){
+highest_finalScore = currentScore;
+}
+
+} //end of for loop
+
+return highest_finalScore;
+
+{ //end of playManyTimes
+
+} //end of Game class 
+
+
+
+/////////
+
+
+
+public class Textbook extends Book {
+
+private int editionNum;
+
+public Textbook(String bookTitle, double bookPrice, int editionNum){
+
+super(bookTitle, bookPrice);
+this.editionNum = editionNum;
+
+} //end of Textbook constructor
+
+public int getEdition(){
+return editionNum;
+} //end of getEdition
+
+public String getBookInfo();
+{
+return title + "-" + price + "-" + editionNum;
+}
+
+public boolean canSubstituteFor(Textbook other){
+
+if(other.title.equals(this.title) && this.editionNum >= other.editionNum){
+return true;
+}
+else{
+return false;
+}
+
+} //end of canSubstitueFor
+
+} //end of Textbook class
+
+
+
+/////////
+
+
+
+public class ReviewAnalysis{
+
+private Review[] allReviews;
+
+public double getAverageRating(){
+
+double total = 0;
+double reviewCount = allReviews.length
+
+for(double i = 0; i < reviewCount; i++){
+
+total = total + allReviews[i].getRating()
+
+} //end of for loop
+
+return total / reviewCount;
+
+} //end of getAverageRating
+
+public ArrayList<String> collectComments(){
+
+ArrayList<String> comments = new ArrayList<String>();
+String comment;
+int reviewCount = allReviews.length;
+
+for(int i = 0; i < reviewCount; i++){
+
+comment = allReviews[i].getComment();
+
+if(comment.indexOf("!") != -1){
+
+if(comment.substring(comment.length() - 1).equals("!"){
+comments.add(i + "-" + comment);
+}
+else{
+comments.add(i + "-" + comment + ".");
+}
+
+}
+
+} //end of for loop
+
+return comments;
+
+} //end of collectComments
+
+} //end of Review class
+
+
+
+/////////
+
+
+
+public class Data{
+
+public static final int MAX = ???;
+private int[][] grid;
+
+public void repopulate(){
+
+for(int row = 0; row < grid.length; row++){
+for(int col = 0; col < grid[0].length; col++){
+
+int randomValue = 0;
+
+while(randomValue % 10 != 0 || randomValue % 100 == 0){
+randomValue = (int) (Math.random() * MAX) + 1; 
+} //end of while loop
+
+grid[row][col] = randomValue;
+
+} //end of col for loop
+} //end of row for loop
+
+} //end of repopulate
+
+public int countIncreasingCols(){
+
+int numIncreasing = 0;
+
+if(grid.length <= 1){
+numIncreasing = grid[0].length
+return numIncreasing;
+}
+
+for(int col = 0; col < grid[0].length; col++){
+for(int row = 1; col < grid.length; col++){
+
+if(grid[row][col] < grid[row-1][col]){
+numIncreasing--;
+break;
+}
+
+} //end of row for loop 
+numIncreasing++;
+} //end of col for loop
+
+return numIncreasing;
+
+} //end of countIncreasingCols
+
+} //end of Data class
