@@ -1,0 +1,15 @@
+public class Data
+{
+	public static final int MAX =
+	private int [] [] grid;
+
+public class grid
+
+public void repopulate(1 < i < MAX, i % 10, i % !=100 )
+	int i = 0
+		return i;
+
+public int countIncreasingCols()
+	int i< grid
+		return grid;
+}
