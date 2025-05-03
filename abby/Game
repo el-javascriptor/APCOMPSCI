@@ -1,9 +1,6 @@
 public class Game;
-	
 	private level levelOne;
-	
-	private level levelTwo;
-		
+	private level levelTwo;	
 	private level levelThree;
 
 public class Level;
@@ -13,25 +10,18 @@ public Boolean goalReached()
 	else goalReached = false
 			
 public int getPoints()
-	int getScore 
+public int getScore()
 
 if levelOne = goalReached
-	return getPoints;
+	return getScore;
+	if levelOne + levelTwo = goalReached()
+		return getScore;
+		if levelOne + levelTwo + levelThree = goalReached()
+			return getScore;
 else
-	return getPoints null;
+	return getScore null;
 
-if levelOne = goalReached, levelTwo = goalReached
-	return getPoints;
-
-else
-	return getPoints null;
-
-if levelOne = goalReached, levelTwo = goalReached, levelThree = goalReached
-	return getPoints;
-else
-	return getPoints null;
-
-int getScore = (levelOne + levelTwo + levelThree)
+getScore = (levelOne + levelTwo + levelThree)
 
 public Boolean isBonus();
 	if isBonus = true 
