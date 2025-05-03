@@ -1,0 +1,37 @@
+public class Review
+	private int rating;
+	private String comment;
+	r >= 0
+	c = !null
+public Review(int r, String c)
+
+	comment = c	
+	rating = r
+
+public int getRating()
+	return rating;
+
+public String getComment()
+	return comment;
+
+public class ReviewAnaylsis
+	private Review[] allReviews
+
+public ReviewAnalysis()
+
+public double getAvreageRating()
+
+double getAvrageRating(Review, getRating)
+		allReviews =!0
+
+public ArrayList<String> collectComments()
+
+String collectComments (0 = "-")
+String collectComments ()
+if string allReviews = ("." or "!")
+	return null
+else 
+	add (".")
+
+string i = ("-")
+}
