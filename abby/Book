@@ -1,0 +1,35 @@
+public class Book
+	
+	private String title;
+	private double price;
+
+public class Textbook
+public class otherTextbook
+int editionNum()
+
+String getBookInfo ()
+	return getBookInfo;
+public Book(String bookTitle, double bookPrice);
+
+boolean canSubsituteFor()
+	
+if otherTextbook = bookTitle, bookPrice, 
+	return canSubstitutefor
+else
+	return canSubstidutefor null
+
+public String getTitle()
+{ 
+	return title;}
+
+public String getBookInfo()
+{ 
+	return title + "-" + price;
+boolean canSubsituteFor()
+	
+if otherTextbook = bookTitle, i >= editionNum)
+	return canSubstitutefor
+else
+	return canSubstidutefor null;
+
+}
