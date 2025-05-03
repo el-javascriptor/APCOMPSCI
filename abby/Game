@@ -1,0 +1,42 @@
+public class Game;
+	
+	private level levelOne;
+	
+	private level levelTwo;
+		
+	private level levelThree;
+
+public class Level;
+public Boolean goalReached()
+	if Level = goalReached = true
+
+	else goalReached = false
+			
+public int getPoints()
+	int getScore 
+
+if levelOne = goalReached
+	return getPoints;
+else
+	return getPoints null;
+
+if levelOne = goalReached, levelTwo = goalReached
+	return getPoints;
+
+else
+	return getPoints null;
+
+if levelOne = goalReached, levelTwo = goalReached, levelThree = goalReached
+	return getPoints;
+else
+	return getPoints null;
+
+int getScore = (levelOne + levelTwo + levelThree)
+
+public Boolean isBonus();
+	if isBonus = true 
+	int (getScore * 3)
+
+
+public class playManyTimes;
+	while playManyGames 
