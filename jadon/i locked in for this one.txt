@@ -1,0 +1,104 @@
+1.
+a)
+public int getScore() {
+	int total = 0;
+	
+	// Save goal status for each level
+	boolean goalOne = this.levelOne.goalReached();
+	boolean goalTwo = goalOne && this.levelTwo.goalReached();
+	boolean goalThree = goalTwo && this.levelThree.goalReached();
+	
+	// For each level, add the score if earned
+	total += goalOne ? this.levelOne.getPoints() : 0;
+	total += goalTwo ? this.levelTwo.getPoints() : 0;
+	total += goalThree ? this.levelThree.getPoints() : 0;
+
+	// Multiply the score if the game is a bonus
+	total *= isBonus() ? 3 : 0;
+	
+	return total;
+}
+
+b)
+public int playManyTimes(int num) {
+	int highScore = 0;
+
+	// Play the game `num` times
+	for (i = 0; i < num; i++) {
+		play();
+
+		// Check if score is highest
+		int score = getScore();
+		if (score > highScore) {
+			highScore = score;
+		}
+		
+	}
+}
+
+2. 
+public class Textbook extends Book {
+	private int edition;
+
+	public Textbook(String bookTitle, double bookPrice, int edition) {
+		super(bookTitle, bookPrice);
+		this.edition = edition;
+	}
+
+	@Override public String getBookInfo() {
+		return super.getBookInfo() + "-" + this.edition;
+	}
+
+	public int getEdition() {
+		return this.edition;
+	}
+
+	public boolean canSubstituteFor(Textbook book) {
+		boolean sameTitle = book.getTitle().equals(getTitle());
+		boolean validEdition = book.getEdition() >= getEdition();
+
+		return sameTitle && validEdition;
+	}
+}
+
+3.
+a)
+public double getAverageRating() {
+	int totalRating = 0;
+	for(Review review : this.allReviews) {
+		totalRating += review.getRating();
+	}
+	double averageRating = ((double)totalRating)/((double)this.allReviews.length);
+	return averageRating;
+}
+
+b)
+public ArrayList<String> collectComments() {
+	// ArrayList to store formatted comments
+	ArrayList<String> result = new ArrayList<String>();
+	Review[] reviews = this.allReviews;
+	int totalReviews = reviews.length;
+
+	// Loop through every review 
+	for(int i = 0; i < totalReviews; i++) {
+		// Get comment to process
+		String currentComment = reviews[i].getComment();
+
+		// If no ! is found, skip itteration
+		if(currentComment.indexOf("!") == -1) {
+			continue;
+		}
+		
+		// Check if punctiation already exists
+		boolean hasPunctuation = currentComment.indexOf("!", totalReviews - 1) != -1 
+					 ||currentComment.indexOf(".", totalReviews - 1);
+
+		// Combine all elements into final formatted string and add to result
+		String formatted = i + "-" +currentComment + hasPunctuation ? "" : ".";
+		result.add(formatted); 
+	}
+	return result;
+}
+
+4.
+a)
